@@ -1,0 +1,124 @@
+@font-face {
+  font-family: 'Ditty';
+  src: url('assets/fonts/Ditty.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  background-color: black; font-family: 'Ditty', cursive;
+}
+
+p {
+  text-align: center;
+}
+
+.fade-top {
+  top: 0;
+  height: 500px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0), #000);
+}
+
+.fade-bottom {
+  bottom: 0;
+  height: 500px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #000);
+}
+
+.fade-top,
+.fade-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  transition: 300ms;
+}
+
+/* Bottom Navbar */
+.bottom-nav {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  gap: 5rem;
+  padding: 1rem 2.5rem;
+
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.45);
+
+  z-index: 999;
+}
+
+.bottom-nav a {
+  color: white;
+  text-decoration: none;
+  font-family: "Ditty", cursive;
+  font-size: 1rem;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.bottom-nav a:hover {
+  opacity: 0.75;
+  transform: scale(1.05);
+}
+
+/* Cards */
+.card {
+  max-width: 280px;
+  margin: auto;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.titan-img {
+  height: 220px;
+  overflow: hidden;
+}
+
+.titan-overlay {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.titan-img:hover .titan-overlay {
+  opacity: 1;
+}
+
+.titan-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.titan-img:hover img {
+  transform: scale(1.05);
+  filter: brightness(50%);
+}
